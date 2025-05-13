@@ -20,22 +20,14 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v4
 
-      - name: log encoded TEST_SECRETE_1
+      - name: 일반 시크릿 값을 인코딩해서 출력(log encoded TEST_SECRETE_1)
         run:
           echo "${{ secrets.TEST_SECRETE_1 }}" | base64 
 
-      - name: log encoded TEST_SECRETE_22
+      - name: 일반 시크릿 값을 인코딩해서 출력(log encoded TEST_SECRETE_2)
         run:
           echo "${{ secrets.TEST_SECRETE_2 }}" | base64 
 
-      - name: log decoded TEST_SECRETE_BASE_64
+      - name: 인코딩된 시크릿 값을 디코딩해서 출력(log decoded TEST_SECRETE_BASE_64)
         run:
           echo "${{ secrets.TEST_SECRETE_BASE_64 }}" | base64 --decode
-          
-      - name: create TEST_SECRETE_BASE_64
-        run:
-          echo "${{ secrets.TEST_SECRETE_BASE_64 }}" | base64 --decode > TEST_SECRETE_BASE_64.txt
-
-      - name: log TEST_SECRETE_BASE_64
-        run:
-          cat TEST_SECRETE_BASE_64.txt
