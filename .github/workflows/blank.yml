@@ -30,12 +30,11 @@ jobs:
 
       - name: log encoded TEST_SECRETE_2
         run: 
-          echo TEST_SECRETE_2.txt
+          cat TEST_SECRETE_2.txt
 
       - name: log decoded TEST_SECRETE_2
         run: 
-          echo TEST_SECRETE_2.txt | base64 --decode
-
+          base64 --decode TEST_SECRETE_2.txt
           
       - name: create TEST_SECRETE_BASE_64
         run:
