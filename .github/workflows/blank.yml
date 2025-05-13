@@ -32,10 +32,18 @@ jobs:
       - name: print secrete2
         run: echo "TEST_SECRETE_2 = $TEST_SECRETE_2"
 
+      - name: create TEST_SECRETE_1
+        run: |
+          echo "${{ secrets.TEST_SECRETE_1 }}" | base64 --decode > TEST_SECRETE_1
+
+      - name: create TEST_SECRETE_2
+        run: |
+          echo "${{ secrets.TEST_SECRETE_2 }}" > TEST_SECRETE_2
+
       - name: log TEST_SECRETE_1
         run: |
-          echo "${{ secrets.TEST_SECRETE_1 }}"
+          cat TEST_SECRETE_1
 
       - name: log TEST_SECRETE_2
         run: |
-          echo "${{ secrets.TEST_SECRETE_2 }}"
+          cat TEST_SECRETE_2
