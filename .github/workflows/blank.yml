@@ -24,17 +24,13 @@ jobs:
         run:
           echo "${{ secrets.TEST_SECRETE_1 }}" | base64 
 
-      - name: create encoded TEST_SECRETE_2
+      - name: log encoded TEST_SECRETE_22
         run:
-          echo "${{ secrets.TEST_SECRETE_2 }}" | base64 > TEST_SECRETE_2.txt
+          echo "${{ secrets.TEST_SECRETE_2 }}" | base64 
 
-      - name: log encoded TEST_SECRETE_2
-        run: 
-          cat TEST_SECRETE_2.txt
-
-      - name: log decoded TEST_SECRETE_2
-        run: 
-          base64 --decode TEST_SECRETE_2.txt
+      - name: log decoded TEST_SECRETE_BASE_64
+        run:
+          echo "${{ secrets.TEST_SECRETE_BASE_64 }}" | base64 --decode
           
       - name: create TEST_SECRETE_BASE_64
         run:
