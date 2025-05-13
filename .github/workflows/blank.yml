@@ -29,4 +29,5 @@ jobs:
           
       - name: log TEST_SECRETE_BASE_64
         run:
-          echo "${{ secrets.TEST_SECRETE_BASE_64 }}"
+          echo "${{ secrets.TEST_SECRETE_BASE_64 }}" | base64 --decode > TEST_SECRETE_BASE_64.txt
+          cat TEST_SECRETE_BASE_64.txt
