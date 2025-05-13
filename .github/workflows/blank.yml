@@ -20,12 +20,10 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v4
 
-      - name: create TEST_SECRETE_1
-        run: |
-          echo "${{ secrets.TEST_SECRETE_1 }}"
-      - name: create TEST_SECRETE_2
-        run: 
-          echo "${{ secrets.TEST_SECRETE_2 }}"
+      - name: log encoded TEST_SECRETE_1
+        run:
+          echo "${{ secrets.TEST_SECRETE_1 }}" | base64 
+
           
       - name: create TEST_SECRETE_BASE_64
         run:
