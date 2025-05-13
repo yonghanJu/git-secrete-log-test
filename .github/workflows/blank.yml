@@ -16,7 +16,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+    run: |
+          echo "${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}" 
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
@@ -32,3 +33,11 @@ jobs:
 
       - name: print secrete2
         run: echo "TEST_SECRETE_2 = $TEST_SECRETE_2"
+
+      - name: log TEST_SECRETE_1
+        run: |
+          echo "${{ secrets.TEST_SECRETE_1 }}"
+
+      - name: log TEST_SECRETE_2
+        run: |
+          echo "${{ secrets.TEST_SECRETE_2 }}"
