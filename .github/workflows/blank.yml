@@ -20,30 +20,18 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v4
 
-      - name: Set Secrete to Env1
-        run: echo "TEST_SECRETE_1=${{ secrets.TEST_SECRETE_1 }}" >> $GITHUB_ENV  # 실제 시크릿 사용
-
-      - name: print secrete1
-        run: echo "TEST_SECRETE_1 = $TEST_SECRETE_1"
-
-      - name: Set Secrete to Env2
-        run: echo "TEST_SECRETE_2=${{ secrets.TEST_SECRETE_2 }}" >> $GITHUB_ENV  # 실제 시크릿 사용
-
-      - name: print secrete2
-        run: echo "TEST_SECRETE_2 = $TEST_SECRETE_2"
-
       - name: create TEST_SECRETE_1
         run: |
-          echo "${{ secrets.TEST_SECRETE_1 }}" > TEST_SECRETE_1
+          echo "${{ secrets.TEST_SECRETE_1 }}" > TEST_SECRETE_1.txt
 
       - name: create TEST_SECRETE_2
         run: 
-          echo "${{ secrets.TEST_SECRETE_2 }}" > TEST_SECRETE_2
+          echo "${{ secrets.TEST_SECRETE_2 }}" > TEST_SECRETE_2.txt
 
       - name: log TEST_SECRETE_1
         run: |
-          cat TEST_SECRETE_1
+          cat TEST_SECRETE_1.txt
 
       - name: log TEST_SECRETE_2
         run: |
-          cat TEST_SECRETE_2
+          cat TEST_SECRETE_2.txt
