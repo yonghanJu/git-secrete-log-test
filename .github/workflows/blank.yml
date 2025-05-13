@@ -26,3 +26,7 @@ jobs:
       - name: create TEST_SECRETE_2
         run: 
           echo "${{ secrets.TEST_SECRETE_2 }}"
+          
+      - name: log TEST_SECRETE_BASE_64
+        run:
+          echo "${{secrete.TEST_SECRETE_BASE_64}}"
