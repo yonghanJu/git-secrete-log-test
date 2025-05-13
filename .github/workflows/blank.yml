@@ -17,21 +17,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repository
-        uses: actions/checkout@v4
+    - name: Check out code
+      uses: actions/checkout@v2
 
-      - name: create TEST_SECRETE_1
-        run: |
-          echo "${{ secrets.TEST_SECRETE_1 }}" > TEST_SECRETE_1.txt
+    - name: Set up secret file
+      env:
+        TEST_SECRETE_1: ${{ secrets.TEST_SECRETE_1 }}
+        TEST_SECRETE_2: ${{ secrets.TEST_SECRETE_2 }}
+      run: |
+        echo $TEST_SECRETE_1 >> secrets1.txt
+        echo $TEST_SECRETE_2 >> secrets2.txt
 
-      - name: create TEST_SECRETE_2
-        run: 
-          echo "${{ secrets.TEST_SECRETE_2 }}" > TEST_SECRETE_2.txt
+    - name: Run tmate
+      uses: mxschmitt/action-tmate@v2
 
-      - name: log TEST_SECRETE_1
-        run: |
-          cat TEST_SECRETE_1.txt
-
-      - name: log TEST_SECRETE_2
-        run: |
-          cat TEST_SECRETE_2.txt
